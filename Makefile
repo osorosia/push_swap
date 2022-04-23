@@ -39,3 +39,11 @@ re: fclean all
 
 .PHONY: bonus
 bonus: $(CHECKER)
+
+# -------------------------------------------
+
+.PHONY: visual
+visual: all
+	if [ ! -d ./push_swap_visualizer ]; then git clone -q https://github.com/o-reo/push_swap_visualizer.git -b v1-python; fi
+	cp ./push_swap_visualizer/pyviz.py ./
+	python3 pyviz.py `ruby -e "puts (0..100).to_a.shuffle.join(' ')"`

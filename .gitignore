@@ -1,5 +1,7 @@
 **/.vscode/
 **/objs/
+**/push_swap_tester/
+**/push_swap_visualizer/
 
 **/checker
 **/checker_linux
@@ -8,5 +10,7 @@
 
 **/*.o
 **/*.a
+**/*.py
+
 **/tmp*
 **/*tmp

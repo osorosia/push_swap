@@ -17,8 +17,8 @@ int main(int argc, char **argv) {
     if (check_duplicate_number(a))
         error("Error");
 
-    print_dlst("a", a);
-    print_dlst("b", b);
+    // print_dlst("a", a);
+    // print_dlst("b", b);
 
     dlst_free(a);
     dlst_free(b);
