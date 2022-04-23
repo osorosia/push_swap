@@ -27,4 +27,6 @@ int main(int argc, char **argv) {
     rrr(a, b); print_dlst("a", a); print_dlst("b", b);
     sa(a, b); print_dlst("a", a); print_dlst("b", b);
     sb(a, b); print_dlst("a", a); print_dlst("b", b);
+    dlst_free(a);
+    dlst_free(b);
 }

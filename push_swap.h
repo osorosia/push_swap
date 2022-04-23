@@ -44,6 +44,7 @@ void dlst_add_front(t_dlst *dummy, long num);
 void dlst_del_back(t_dlst *dummy);
 void dlst_del_front(t_dlst *dummy);
 long dlst_size(t_dlst *dummy);
+void dlst_free(t_dlst *dummy);
 void print_dlst(char *dlst_name, t_dlst *dummy);
 
 // utils.c
