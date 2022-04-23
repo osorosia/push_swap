@@ -6,6 +6,8 @@
 #include <limits.h>
 #include "./libft/libft.h"
 
+#define MAX_NUMBERS_LEN 10000
+
 typedef struct s_dlst t_dlst;
 struct s_dlst {
     t_dlst *prev;
@@ -15,7 +17,8 @@ struct s_dlst {
 };
 
 // number_list.c
-
+char **create_number_strs(int argc, char **argv);
+void free_number_strs(char **numbers);
 
 // swap.c
 void sa(t_dlst *a, t_dlst *b);
@@ -39,6 +42,7 @@ void rrr(t_dlst *a, t_dlst *b);
 // dlst.c
 t_dlst *dlst_new_dummy();
 t_dlst *dlst_new(t_dlst *prev, t_dlst *next, long num);
+void dlst_add_numbers(t_dlst *dummy, char **numbers);
 void dlst_add_back(t_dlst *dummy, long num);
 void dlst_add_front(t_dlst *dummy, long num);
 void dlst_del_back(t_dlst *dummy);
@@ -49,5 +53,6 @@ void print_dlst(char *dlst_name, t_dlst *dummy);
 
 // utils.c
 void error(char *str);
+long atoi_or_err(char *str);
 
 #endif

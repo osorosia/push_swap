@@ -21,6 +21,16 @@ t_dlst *dlst_new(t_dlst *prev, t_dlst *next, long num) {
     return dlst;
 }
 
+void dlst_add_numbers(t_dlst *dummy, char **numbers) {
+    long i;
+
+    i = 0;
+    while (numbers[i]) {
+        dlst_add_back(dummy, atoi_or_err(numbers[i]));
+        i++;
+    }
+}
+
 void dlst_add_back(t_dlst *dummy, long num) {
     t_dlst *prev = dummy->prev;
     t_dlst *next = dummy;
