@@ -3,7 +3,7 @@
 long get_border(long min, long size, long index) {
     if (index == 0)
         return size / 3 + ((size % 3) > 0) + min - 1;
-    if (index == 1)
+    else
         return size / 3 * 2 + size % 3 + min - 1;
 }
 
@@ -19,8 +19,8 @@ long get_size(long min, long size, long index) {
 long get_min(long min, long size, long index) {
     if (index == 0)
         return min;
-    if (index == 1)
+    else if (index == 1)
         return get_border(min, size, 0) + 1;
-    if (index == 2)
+    else
         return get_border(min, size, 1) + 1;
 }

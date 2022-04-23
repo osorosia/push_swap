@@ -7,8 +7,8 @@ OBJS_DIR     = objs
 OBJS         = $(addprefix $(OBJS_DIR)/, $(subst checker.o,, $(SRCS:.c=.o)))
 OBJS_CHECKER = $(addprefix $(OBJS_DIR)/, $(subst main.o,, $(SRCS:.c=.o)))
 
-# CFLAGS = -Wall -Wextra -Werror -g
-CFLAGS       = -g
+CFLAGS = -Wall -Wextra -Werror -g
+# CFLAGS       = -g
 LIBFT        = ./libft/libft.a
 
 $(NAME): $(OBJS) $(LIBFT)

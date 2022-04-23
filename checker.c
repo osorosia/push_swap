@@ -1,12 +1,14 @@
 #include "push_swap.h"
 
 bool check_op_str(char *op, char *str) {
-    const long len = ft_strlen(op);
+    long len = ft_strlen(op);
 
-    if (ft_strncmp(op, str, len) != 0)
+    if (ft_strncmp(op, str, len) != 0) {
         return false;
-	if (str[len] != '\0' && str[len] != '\n')
+    }
+	if (str[len] != '\0' && str[len] != '\n') {
         return false;
+    }
     return true;
 }
 
