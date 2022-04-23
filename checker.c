@@ -15,25 +15,25 @@ bool check_op(t_dlst *a, t_dlst *b, char *line) {
 
 	if (check_op_str("rra", line) && (flag = true))
         rra(a, b, false);
-    if (check_op_str("rrb", line) && (flag = true))
+    else if (check_op_str("rrb", line) && (flag = true))
         rrb(a, b, false);
-    if (check_op_str("rrr", line) && (flag = true))
+    else if (check_op_str("rrr", line) && (flag = true))
         rrr(a, b, false);
-    if (check_op_str("ra", line) && (flag = true))
+    else if (check_op_str("ra", line) && (flag = true))
         ra(a, b, false);
-    if (check_op_str("rb", line) && (flag = true))
+    else if (check_op_str("rb", line) && (flag = true))
         rb(a, b, false);
-    if (check_op_str("rr", line) && (flag = true))
+    else if (check_op_str("rr", line) && (flag = true))
         rr(a, b, false);
-    if (check_op_str("pa", line) && (flag = true))
+    else if (check_op_str("pa", line) && (flag = true))
         pa(a, b, false);
-    if (check_op_str("pb", line) && (flag = true))
+    else if (check_op_str("pb", line) && (flag = true))
         pb(a, b, false);
-    if (check_op_str("sa", line) && (flag = true))
+    else if (check_op_str("sa", line) && (flag = true))
         sa(a, b, false);
-    if (check_op_str("sb", line) && (flag = true))
+    else if (check_op_str("sb", line) && (flag = true))
         sb(a, b, false);
-    if (check_op_str("ss", line) && (flag = true))
+    else if (check_op_str("ss", line) && (flag = true))
         ss(a, b, false);
     return flag;
 }
