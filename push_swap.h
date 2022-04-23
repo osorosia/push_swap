@@ -16,7 +16,7 @@ struct s_dlst {
     long num;
 };
 
-// number_list.c
+// numbers.c
 char **create_number_strs(int argc, char **argv);
 void free_number_strs(char **numbers);
 
