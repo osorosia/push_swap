@@ -1,0 +1,10 @@
+**/.vscode/
+
+**/checker
+**/checker_linux
+**/push_swap
+
+**/*.o
+**/*.a
+**/tmp*
+**/*tmp
