@@ -1,8 +1,9 @@
 NAME = push_swap
 CHECKER = checker
 SRCS = $(wildcard *.c)
-OBJS = $(subst checker.o,, $(SRCS:.c=.o))
-OBJS_CHECKER = $(subst main.o,, $(SRCS:.c=.o))
+OBJS_DIR = objs
+OBJS = $(addprefix $(OBJS_DIR)/, $(subst checker.o,, $(SRCS:.c=.o)))
+OBJS_CHECKER = $(addprefix $(OBJS_DIR)/, $(subst main.o,, $(SRCS:.c=.o)))
 # CFLAGS = -Wall -Wextra -Werror -g
 CFLAGS = -g
 LIBFT = ./libft/libft.a
@@ -16,8 +17,8 @@ $(CHECKER): $(OBJS_CHECKER) $(LIBFT)
 $(LIBFT):
 	make -C ./libft
 
-%.o: %.c ./push_swap.h
-	cc $(CFLAGS) -c -o $@ $<
+$(OBJS_DIR)/%.o: %.c ./push_swap.h
+	mkdir $(OBJS_DIR) 2>/dev/null; cc $(CFLAGS) -c -o $@ $<
 
 .PHONY: all
 all: $(NAME)
