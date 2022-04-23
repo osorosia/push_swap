@@ -54,7 +54,7 @@ clone:
 .PHONY: visual
 visual: all clone
 	cp ./push_swap_visualizer/pyviz.py ./
-	python3 pyviz.py `ruby -e "puts (0..4).to_a.shuffle.join(' ')"`
+	python3 pyviz.py `ruby -e "puts (0..100).to_a.shuffle.join(' ')"`
 
 .PHONY: small
 small: fclean all bonus clone

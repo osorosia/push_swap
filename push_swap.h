@@ -13,6 +13,7 @@ struct s_dlst {
     t_dlst *prev;
     t_dlst *next;
     bool is_dummy;
+    bool is_compression;
     long num;
     long size;
 };
@@ -63,12 +64,23 @@ long atoi_or_err(char *str);
 // sort.c
 void sort(t_dlst *a, t_dlst *b);
 void sort_5(t_dlst *a, t_dlst *b);
-void sort_500(t_dlst *a, t_dlst *b);
+void quick_sort(t_dlst *a, t_dlst *b);
+void sort_a(t_dlst *a, t_dlst *b, long min, long size);
+void sort_b(t_dlst *a, t_dlst *b, long min, long size);
+
+// sort_utils.c
+long get_border(long min, long size, long index);
+long get_size(long min, long size, long index);
+long get_min(long min, long size, long index);
 
 // dlst2.c
 long get_min_in_dlst(t_dlst *dummy, long border);
 long get_max_in_dlst(t_dlst *dummy, long border);
 long dlst_front_num(t_dlst *dummy, long index);
 long dlst_back_num(t_dlst *dummy, long index);
+long dlst_all_size(t_dlst *a, t_dlst *b);
+
+// compression.c
+void dlst_compression(t_dlst *a);
 
 #endif

@@ -38,10 +38,14 @@ long dlst_front_num(t_dlst *dummy, long index) {
 long dlst_back_num(t_dlst *dummy, long index) {
     if (dlst_size(dummy) < index + 1)
         error("error: dlst_back_num()");
-    dummy = dummy->prev; 
+    dummy = dummy->prev;
     while (index > 0) {
         dummy = dummy->prev;
         index--;
     }
     return dummy->num;
+}
+
+long dlst_all_size(t_dlst *a, t_dlst *b) {
+    return dlst_size(a) + dlst_size(b);
 }
