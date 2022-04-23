@@ -33,6 +33,7 @@ clean:
 .PHONY: fclean
 fclean: clean
 	rm -f $(NAME)
+	rm -f $(CHECKER)
 
 .PHONY: re
 re: fclean all
@@ -42,6 +43,9 @@ bonus: $(CHECKER)
 
 # -------------------------------------------
 
+norm:
+	python3 -m norminette $(SRCS) | grep Error | cat
+
 .PHONY: clone
 clone:
 	if [ ! -d ./push_swap_visualizer ]; then git clone -q https://github.com/o-reo/push_swap_visualizer.git -b v1-python; fi
@@ -49,10 +53,12 @@ clone:
 
 .PHONY: visual
 visual: all clone
-	python3 ./push_swap_visualizer/pyviz.py `ruby -e "puts (0..100).to_a.shuffle.join(' ')"`
+	cp ./push_swap_visualizer/pyviz.py ./
+	python3 pyviz.py `ruby -e "puts (0..4).to_a.shuffle.join(' ')"`
 
 .PHONY: small
-small: all bonus clone
+small: fclean all bonus clone
+	# cp checker_linux checker
 	cd ./push_swap_tester \
 	&& python3 push_swap_tester.py -l 1 \
 	&& echo 'req   : 0' \
@@ -66,7 +72,8 @@ small: all bonus clone
 	&& echo 'req   : ~12'
 
 .PHONY: big
-big: all bonus clone
+big: fclean all bonus clone
+	# cp checker_linux checker
 	cd ./push_swap_tester \
 	&& python3 push_swap_tester.py -l 100 \
 	&& echo 'req   : ~700' \
