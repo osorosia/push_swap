@@ -67,6 +67,7 @@ void sort_5(t_dlst *a, t_dlst *b);
 void quick_sort(t_dlst *a, t_dlst *b);
 void sort_a(t_dlst *a, t_dlst *b, long min, long size);
 void sort_b(t_dlst *a, t_dlst *b, long min, long size);
+void sort_a_1st(t_dlst *a, t_dlst *b, long min, long size);
 
 // sort_utils.c
 long get_border(long min, long size, long index);
