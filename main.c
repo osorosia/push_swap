@@ -9,9 +9,13 @@ int main(int argc, char **argv) {
         exit(0);
     a = dlst_new_dummy();
     b = dlst_new_dummy();
+
     numbers = create_number_strs(argc, argv);
     dlst_add_numbers(a, numbers);
     free_number_strs(numbers);
+
+    if (check_duplicate_number(a))
+        error("Error");
 
     print_dlst("a", a);
     print_dlst("b", b);

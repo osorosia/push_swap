@@ -16,28 +16,32 @@ struct s_dlst {
     long num;
 };
 
+// check.c
+bool check_sorted(t_dlst *a, t_dlst *b);
+bool check_duplicate_number(t_dlst *dummy);
+
 // numbers.c
 char **create_number_strs(int argc, char **argv);
 void free_number_strs(char **numbers);
 
 // swap.c
-void sa(t_dlst *a, t_dlst *b);
-void sb(t_dlst *a, t_dlst *b);
-void ss(t_dlst *a, t_dlst *b);
+void sa(t_dlst *a, t_dlst *b, bool flag);
+void sb(t_dlst *a, t_dlst *b, bool flag);
+void ss(t_dlst *a, t_dlst *b, bool flag);
 
 // push.c
-void pa(t_dlst *a, t_dlst *b);
-void pb(t_dlst *a, t_dlst *b);
+void pa(t_dlst *a, t_dlst *b, bool flag);
+void pb(t_dlst *a, t_dlst *b, bool flag);
 
 // rotate.c
-void ra(t_dlst *a, t_dlst *b);
-void rb(t_dlst *a, t_dlst *b);
-void rr(t_dlst *a, t_dlst *b);
+void ra(t_dlst *a, t_dlst *b, bool flag);
+void rb(t_dlst *a, t_dlst *b, bool flag);
+void rr(t_dlst *a, t_dlst *b, bool flag);
 
 // rrotate.c
-void rra(t_dlst *a, t_dlst *b);
-void rrb(t_dlst *a, t_dlst *b);
-void rrr(t_dlst *a, t_dlst *b);
+void rra(t_dlst *a, t_dlst *b, bool flag);
+void rrb(t_dlst *a, t_dlst *b, bool flag);
+void rrr(t_dlst *a, t_dlst *b, bool flag);
 
 // dlst.c
 t_dlst *dlst_new_dummy();

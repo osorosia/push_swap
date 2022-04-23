@@ -1,18 +1,23 @@
 NAME = push_swap
+CHECKER = checker
 SRCS = $(wildcard *.c)
-OBJS = $(SRCS:.c=.o)
+OBJS = $(subst checker.o,, $(SRCS:.c=.o))
+OBJS_CHECKER = $(subst main.o,, $(SRCS:.c=.o))
 # CFLAGS = -Wall -Wextra -Werror -g
 CFLAGS = -g
 LIBFT = ./libft/libft.a
 
 $(NAME): $(OBJS) $(LIBFT)
-	cc $(CFLAGS) -o $(NAME) $(OBJS) $(LIBFT)
+	cc $(CFLAGS) -o $@ $^
 
-%.o: %.c ./push_swap.h
-	cc $(CFLAGS) -c -o $@ $<
+$(CHECKER): $(OBJS_CHECKER) $(LIBFT)
+	cc $(CFLAGS) -o $@ $^
 
 $(LIBFT):
 	make -C ./libft
+
+%.o: %.c ./push_swap.h
+	cc $(CFLAGS) -c -o $@ $<
 
 .PHONY: all
 all: $(NAME)
@@ -27,3 +32,6 @@ fclean: clean
 
 .PHONY: re
 re: fclean all
+
+.PHONY: bonus
+bonus: $(CHECKER)
