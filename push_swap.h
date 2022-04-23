@@ -17,6 +17,25 @@ struct s_dlst {
 // number_list.c
 
 
+// swap.c
+void sa(t_dlst *a, t_dlst *b);
+void sb(t_dlst *a, t_dlst *b);
+void ss(t_dlst *a, t_dlst *b);
+
+// push.c
+void pa(t_dlst *a, t_dlst *b);
+void pb(t_dlst *a, t_dlst *b);
+
+// rotate.c
+void ra(t_dlst *a, t_dlst *b);
+void rb(t_dlst *a, t_dlst *b);
+void rr(t_dlst *a, t_dlst *b);
+
+// rrotate.c
+void rra(t_dlst *a, t_dlst *b);
+void rrb(t_dlst *a, t_dlst *b);
+void rrr(t_dlst *a, t_dlst *b);
+
 // dlst.c
 t_dlst *dlst_new_dummy();
 t_dlst *dlst_new(t_dlst *prev, t_dlst *next, long num);
