@@ -1,12 +1,15 @@
-NAME = push_swap
-CHECKER = checker
-SRCS = $(wildcard *.c)
-OBJS_DIR = objs
-OBJS = $(addprefix $(OBJS_DIR)/, $(subst checker.o,, $(SRCS:.c=.o)))
+NAME         = push_swap
+CHECKER      = checker
+
+SRCS         = $(wildcard *.c)
+
+OBJS_DIR     = objs
+OBJS         = $(addprefix $(OBJS_DIR)/, $(subst checker.o,, $(SRCS:.c=.o)))
 OBJS_CHECKER = $(addprefix $(OBJS_DIR)/, $(subst main.o,, $(SRCS:.c=.o)))
+
 # CFLAGS = -Wall -Wextra -Werror -g
-CFLAGS = -g
-LIBFT = ./libft/libft.a
+CFLAGS       = -g
+LIBFT        = ./libft/libft.a
 
 $(NAME): $(OBJS) $(LIBFT)
 	cc $(CFLAGS) -o $@ $^
@@ -25,7 +28,7 @@ all: $(NAME)
 
 .PHONY: clean
 clean:
-	rm -f $(OBJS)
+	rm -rf $(OBJS_DIR)
 
 .PHONY: fclean
 fclean: clean
