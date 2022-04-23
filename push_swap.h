@@ -14,6 +14,7 @@ struct s_dlst {
     t_dlst *next;
     bool is_dummy;
     long num;
+    long size;
 };
 
 // check.c
@@ -58,5 +59,9 @@ void print_dlst(char *dlst_name, t_dlst *dummy);
 // utils.c
 void error(char *str);
 long atoi_or_err(char *str);
+
+// sort.c
+void sort(t_dlst *a, t_dlst *b);
+void sort_5(t_dlst *a, t_dlst *b);
 
 #endif

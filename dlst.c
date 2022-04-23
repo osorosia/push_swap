@@ -32,6 +32,7 @@ void dlst_add_numbers(t_dlst *dummy, char **numbers) {
 }
 
 void dlst_add_back(t_dlst *dummy, long num) {
+    dummy->size++;
     t_dlst *prev = dummy->prev;
     t_dlst *next = dummy;
 
@@ -41,6 +42,7 @@ void dlst_add_back(t_dlst *dummy, long num) {
 }
 
 void dlst_add_front(t_dlst *dummy, long num) {
+    dummy->size++;
     t_dlst *prev = dummy;
     t_dlst *next = dummy->next;
 
@@ -52,6 +54,7 @@ void dlst_add_front(t_dlst *dummy, long num) {
 void dlst_del_back(t_dlst *dummy) {
     if (dummy->next->is_dummy)
         return;
+    dummy->size--;
     t_dlst *target = dummy->prev;
     t_dlst *prev = target->prev;
     t_dlst *next = target->next;
@@ -63,6 +66,7 @@ void dlst_del_back(t_dlst *dummy) {
 void dlst_del_front(t_dlst *dummy) {
     if (dummy->next->is_dummy)
         return;
+    dummy->size--;
     t_dlst *target = dummy->next;
     t_dlst *prev = target->prev;
     t_dlst *next = target->next;
@@ -72,14 +76,7 @@ void dlst_del_front(t_dlst *dummy) {
 }
 
 long dlst_size(t_dlst *dummy) {
-    long size;
-    dummy = dummy->next;
-    size = 0;
-    while (!dummy->is_dummy) {
-        size++;
-        dummy = dummy->next;
-    }
-    return size;
+    return dummy->size;
 }
 
 void dlst_free(t_dlst *dummy) {
