@@ -1,6 +1,6 @@
 #include "push_swap.h"
 
-bool check_operation(char *op, char *str) {
+bool check_op_str(char *op, char *str) {
     const long len = ft_strlen(op);
 
     if (ft_strncmp(op, str, len) != 0)
@@ -8,6 +8,34 @@ bool check_operation(char *op, char *str) {
 	if (str[len] != '\0' && str[len] != '\n')
         return false;
     return true;
+}
+
+bool check_op(t_dlst *a, t_dlst *b, char *line) {
+    bool flag = false;
+
+	if (check_op_str("rra", line) && (flag = true))
+        rra(a, b, false);
+    if (check_op_str("rrb", line) && (flag = true))
+        rrb(a, b, false);
+    if (check_op_str("rrr", line) && (flag = true))
+        rrr(a, b, false);
+    if (check_op_str("ra", line) && (flag = true))
+        ra(a, b, false);
+    if (check_op_str("rb", line) && (flag = true))
+        rb(a, b, false);
+    if (check_op_str("rr", line) && (flag = true))
+        rr(a, b, false);
+    if (check_op_str("pa", line) && (flag = true))
+        pa(a, b, false);
+    if (check_op_str("pb", line) && (flag = true))
+        pb(a, b, false);
+    if (check_op_str("sa", line) && (flag = true))
+        sa(a, b, false);
+    if (check_op_str("sb", line) && (flag = true))
+        sb(a, b, false);
+    if (check_op_str("ss", line) && (flag = true))
+        ss(a, b, false);
+    return flag;
 }
 
 void stdin_loop(t_dlst *a, t_dlst *b) {
@@ -18,18 +46,8 @@ void stdin_loop(t_dlst *a, t_dlst *b) {
 		line = get_next_line(0);
 		if (line == NULL)
 			break ;
-		if (check_operation("rra", line)) rra(a, b, false);
-		else if (check_operation("rrb", line)) rrb(a, b, false);
-		else if (check_operation("rrr", line)) rrr(a, b, false);
-		else if (check_operation("ra", line)) ra(a, b, false);
-		else if (check_operation("rb", line)) rb(a, b, false);
-		else if (check_operation("rr", line)) rr(a, b, false);
-		else if (check_operation("pa", line)) pa(a, b, false);
-		else if (check_operation("pb", line)) pb(a, b, false);
-		else if (check_operation("sa", line)) sa(a, b, false);
-		else if (check_operation("sb", line)) sb(a, b, false);
-		else if (check_operation("ss", line)) ss(a, b, false);
-		else error("Error");
+		if (!check_op(a, b, line))
+            error("Error");
 		free(line);
 	}
 }
@@ -51,6 +69,9 @@ int main(int argc, char **argv) {
         error("Error");
 
     stdin_loop(a, b);
+
+    // print_dlst("a", a);
+    // print_dlst("b", b);
 
     if (check_sorted(a, b))
         ft_putstr_fd("OK\n", 1);
