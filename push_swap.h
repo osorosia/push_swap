@@ -10,12 +10,12 @@
 
 typedef struct s_dlst t_dlst;
 struct s_dlst {
-    t_dlst *prev;
-    t_dlst *next;
-    bool is_dummy;
-    bool is_compression;
-    long num;
-    long size;
+	t_dlst *prev;
+	t_dlst *next;
+	bool is_dummy;
+	bool is_compression;
+	long num;
+	long size;
 };
 
 // check.c
