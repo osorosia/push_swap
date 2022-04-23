@@ -2,6 +2,7 @@
 
 **/checker
 **/checker_linux
+**/checker_Mac
 **/push_swap
 
 **/*.o
