@@ -63,5 +63,12 @@ long atoi_or_err(char *str);
 // sort.c
 void sort(t_dlst *a, t_dlst *b);
 void sort_5(t_dlst *a, t_dlst *b);
+void sort_500(t_dlst *a, t_dlst *b);
+
+// dlst2.c
+long get_min_in_dlst(t_dlst *dummy, long border);
+long get_max_in_dlst(t_dlst *dummy, long border);
+long dlst_front_num(t_dlst *dummy, long index);
+long dlst_back_num(t_dlst *dummy, long index);
 
 #endif

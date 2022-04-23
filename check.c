@@ -1,7 +1,7 @@
 #include "push_swap.h"
 
 bool check_sorted(t_dlst *a, t_dlst *b) {
-    if (dlst_size(b) > 0)
+    if (b && dlst_size(b) > 0)
         return false;
     a = a->next->next;
     while (!a->is_dummy) {

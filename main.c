@@ -16,10 +16,8 @@ int main(int argc, char **argv) {
 
     if (check_duplicate_number(a))
         error("Error");
-
-    // print_dlst("a", a);
-    // print_dlst("b", b);
-
+    if (!check_sorted(a, b))
+        sort(a, b);
     dlst_free(a);
     dlst_free(b);
 }
