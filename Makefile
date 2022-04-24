@@ -68,8 +68,33 @@ bonus: $(CHECKER)
 
 # -------------------------------------------
 
+.PHONY: norm
 norm:
 	python3 -m norminette $(SRCS) $(HEADER) | grep Error | cat
+
+.PHONY: test
+test: fclean all bonus
+	cp ./checker_linux ./.test/checker
+	chmod 777 ./.test/checker
+	cd ./.test \
+	&& bash test.sh \
+	&& bash test_error.sh \
+	&& bash test_checker.sh \
+	&& bash test_checker_error.sh \
+	&& bash test_checker_stdin.sh \
+	&& echo test OK!
+
+.PHONY: mac
+mac: fclean all bonus
+	cp ./checker_Mac ./.test/checker
+	chmod 777 ./.test/checker
+	cd ./.test \
+	&& bash test.sh \
+	&& bash test_error.sh \
+	&& bash test_checker.sh \
+	&& bash test_checker_error.sh \
+	&& bash test_checker_stdin.sh \
+	&& echo test OK!
 
 .PHONY: clone
 clone:
