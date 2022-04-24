@@ -1,14 +1,39 @@
 NAME         = push_swap
 CHECKER      = checker
 
-SRCS         = $(wildcard *.c)
+SRCS         = \
+check.c \
+checker.c \
+dlst_add.c \
+dlst_compression.c \
+dlst_del.c \
+dlst_new.c \
+dlst_num.c \
+dlst_utils.c \
+main.c \
+numbers.c \
+push.c \
+rotate.c \
+rrotate.c \
+sort_5.c \
+sort_a_1st.c \
+sort_a.c \
+sort_a_move.c \
+sort_b.c \
+sort_b_move.c \
+sort.c \
+sort_utils.c \
+swap.c \
+utils.c \
+
+HEADER       = push_swap.h
 
 OBJS_DIR     = objs
 OBJS         = $(addprefix $(OBJS_DIR)/, $(subst checker.o,, $(SRCS:.c=.o)))
 OBJS_CHECKER = $(addprefix $(OBJS_DIR)/, $(subst main.o,, $(SRCS:.c=.o)))
 
-CFLAGS = -Wall -Wextra -Werror -g
 # CFLAGS       = -g
+CFLAGS       = -Wall -Wextra -Werror -g
 LIBFT        = ./libft/libft.a
 
 $(NAME): $(OBJS) $(LIBFT)
@@ -20,7 +45,7 @@ $(CHECKER): $(OBJS_CHECKER) $(LIBFT)
 $(LIBFT):
 	make -C ./libft
 
-$(OBJS_DIR)/%.o: %.c ./push_swap.h
+$(OBJS_DIR)/%.o: %.c $(HEADER)
 	mkdir $(OBJS_DIR) 2>/dev/null; cc $(CFLAGS) -c -o $@ $<
 
 .PHONY: all
@@ -28,7 +53,7 @@ all: $(NAME)
 
 .PHONY: clean
 clean:
-	rm -rf $(OBJS_DIR)
+	rm -f $(OBJS)
 
 .PHONY: fclean
 fclean: clean
@@ -44,7 +69,7 @@ bonus: $(CHECKER)
 # -------------------------------------------
 
 norm:
-	python3 -m norminette $(SRCS) | grep Error | cat
+	python3 -m norminette $(SRCS) $(HEADER) | grep Error | cat
 
 .PHONY: clone
 clone:
