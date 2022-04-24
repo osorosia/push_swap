@@ -61,21 +61,14 @@ small: fclean all bonus clone
 	# cp checker_linux checker
 	cd ./push_swap_tester \
 	&& python3 push_swap_tester.py -l 1 \
-	&& echo 'req   : 0' \
 	&& python3 push_swap_tester.py -l 2 \
-	&& echo 'req   : 1' \
 	&& python3 push_swap_tester.py -l 3 \
-	&& echo 'req   : 2~3' \
 	&& python3 push_swap_tester.py -l 4 \
-	&& echo 'req   : ~?' \
-	&& python3 push_swap_tester.py -l 5 \
-	&& echo 'req   : ~12'
+	&& python3 push_swap_tester.py -l 5
 
 .PHONY: big
 big: fclean all bonus clone
 	# cp checker_linux checker
 	cd ./push_swap_tester \
 	&& python3 push_swap_tester.py -l 100 \
-	&& echo 'req   : ~700' \
-	&& python3 push_swap_tester.py -l 500 \
-	&& echo 'req   : ~5500'
+	&& python3 push_swap_tester.py -l 500
