@@ -6,7 +6,7 @@
 /*   By: rnishimo <rnishimo@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/24 20:08:31 by rnishimo          #+#    #+#             */
-/*   Updated: 2022/04/24 20:08:32 by rnishimo         ###   ########.fr       */
+/*   Updated: 2022/04/24 20:17:43 by rnishimo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ char	**create_number_strs(int argc, char **argv)
 	long	index;
 
 	numbers = ft_calloc(MAX_NUMBERS_LEN + 1, sizeof(char *));
+	if (numbers == NULL)
+		error("malloc error");
 	i = 1;
 	index = 0;
 	while (i < argc)
